@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container-fluid(id="mainContainer")
+    .row(class="justify-content-md-center")
+      .col-md-4 
+        form(id="netDataSubmit") 
+          .form-group 
+            label(for="ssid") 
+              h2(class="font-weight-bold text-center") CHOOSE NETWORK 
+            select(class="form-control-lg form-control selectpicker show-tick" id="ssid" title="SSID")
+              each val in networks
+                option=val 
+          .form-group  
+            input(type="password" class="form-control form-control-lg" id="password" placeholder="Secret")
+          button(type="submit" href="#" class="btn btn-secondary btn-block" id="buttonSumbit") Submit
+
+    script(src="./js/pageManager.js")
+      

@@ -1,9 +1,34 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express")
+const router = express.Router()
+const exec = require("child_process").exec
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get("/", (req, res, next) => {
+    let networks = []
 
-module.exports = router;
+    exec("LANG=C nmcli -g SSID,SIGNAL dev wifi", (err, stdout, stderr) => {
+        const response = stdout.split("\n")
+
+        response.forEach((e, index) => {
+            if (e.includes(":")) {
+                const net = e.split(":")
+                //networks[net[0]] = parseInt(net[1])
+                networks.push(net[0])
+            }
+        })
+
+        networks = [...new Set(networks)]
+
+        res.render("index", { title: "Express", networks: networks })
+    })
+})
+
+router.post("/", (req, res, next) => {
+    console.log("body:", req.body)
+    console.log("params:", req.params)
+    res.json({
+        response:
+            "Network data send, reboot your <strong>rockpis</strong> and connect to ip that's appear on display",
+    })
+})
+
+module.exports = router

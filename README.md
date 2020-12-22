@@ -11,3 +11,9 @@ Important: your node location may vary. Use which node to find it, or use it dir
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' `which node`
 ```
+
+## Impostare la 80 come porta di ascolto del server
+
+```bash
+PORT=80 npm run dev
+```

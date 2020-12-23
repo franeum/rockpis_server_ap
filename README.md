@@ -17,3 +17,9 @@ sudo setcap 'cap_net_bind_service=+ep' `which node`
 ```bash
 killall node
 ```
+
+## Impostare la 80 come porta di ascolto del server
+
+```bash
+PORT=80 npm run dev
+```

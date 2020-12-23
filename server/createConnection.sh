@@ -6,4 +6,4 @@ if (( $# != 2 )); then
     exit 1
 fi 
 
-nmcli d wifi connect $1 password $2 ifname p2p0
+LANG=C nmcli d wifi connect $1 password $2 ifname p2p0

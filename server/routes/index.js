@@ -25,9 +25,14 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
     console.log("body:", req.body)
     console.log("params:", req.params)
-    res.json({
-        response:
-            "Network data send, reboot your <strong>rockpis</strong> and connect to ip that's appear on display",
+
+    const { ssid, password } = req.body
+
+    exec(`./createConnection.sh ${ssid} ${password}`, (err, stdout, stderr) => {
+        res.json({
+            response:
+                "Network data send, reboot your <strong>rockpis</strong> and connect to ip that's appear on display",
+        })
     })
 })
 

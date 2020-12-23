@@ -11,3 +11,9 @@ Important: your node location may vary. Use which node to find it, or use it dir
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' `which node`
 ```
+
+## Uccidere tutti i server node attivi
+
+```bash
+killall node
+```

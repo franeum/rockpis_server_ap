@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# execute with sudo 
 # check if disconnected (30 is disconnected, 100 is connected)
 
 server_path=/home/rock/Documenti/rockpis_server_ap/server/
@@ -54,8 +55,8 @@ function main {
 	sudo systemctl restart dnsmasq
 	pkill node
 
-	cd $server_path
-	PORT=80 npm run dev
+	#cd $server_path
+	PORT=80 npm run dev &
 }
 
 main

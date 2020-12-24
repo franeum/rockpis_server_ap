@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# execute with sudo
+
 if (( $# != 2 )); then
     echo "incorrect number of arguments"
     echo "usage: createConnection.sh <ssid> <password>"

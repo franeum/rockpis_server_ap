@@ -23,5 +23,3 @@ killall node
 ```bash
 PORT=80 npm run dev
 ```
-
-TODO
